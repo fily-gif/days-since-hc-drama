@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Days Since Hack Club Drama</title>
+</head>
+
+<body>
+    <style>
+        .counter-css {
+            text-align: center;
+        }
+        #counter {
+            font-size: 3em;
+        }
+        .sub-counter {
+            font-size: 2em;
+        }
+        * {
+            background-color: #272727;
+            color: #FFFFFF;
+        }
+        a:visited {
+            color: purple;
+        }
+        a {
+            color: blue;
+        }
+    </style>
+    <div class="counter-css">
+        <p class="sub-counter">It's been</p>
+        <h2 id="counter">(counter broke?)</h2>
+        <p class="sub-counter">day(s) since latest <a href="https://hackclub.com">Hack Club</a> drama.</p> <!--/drama soon-->
+    </div>
+            <script>
+                function getDaysSince(year, month, day) {
+                    const specificDate = new Date(year, month - 1, day);
+                    const currentDate = new Date();
+
+                    const timeDifference = currentDate.getTime() - specificDate.getTime();
+                    const millisecondsPerDay = 1000 * 60 * 60 * 24;
+
+                    const daysSince = Math.floor(timeDifference / millisecondsPerDay);
+                    return daysSince;
+                }
+                const days = getDaysSince(2025, 9, 29); // yyyy, mm, dd
+                document.getElementById('counter').innerText = days;
+            </script>
+</body>
+
+</html>
